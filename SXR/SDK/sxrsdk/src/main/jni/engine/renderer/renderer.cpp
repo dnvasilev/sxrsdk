@@ -172,6 +172,7 @@ void Renderer::cullFromCamera(Scene *scene, jobject javaNode, Camera* camera,
 
     render_data_vector[Renderer::LAYER_NORMAL].clear();
     render_data_vector[Renderer::LAYER_CURSOR].clear();
+    render_data_vector[Renderer::LAYER_VIDEO].clear();
 
     rstate.shader_manager = shader_manager;
     rstate.uniforms.u_view = camera->getViewMatrix();

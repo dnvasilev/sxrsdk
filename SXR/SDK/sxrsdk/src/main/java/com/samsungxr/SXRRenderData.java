@@ -832,7 +832,9 @@ public final class SXRRenderData extends SXRComponent implements IRenderable, Pr
 
     public enum LayerType {
         WorldLocked,
-        HeadLocked
+        HeadLocked,
+        Cursor,
+        Video
     }
 
     /**
@@ -842,8 +844,23 @@ public final class SXRRenderData extends SXRComponent implements IRenderable, Pr
      * capabilities. HeadLocked objects are supported for the Oculus Mobile SDK.
      * @param layer
      */
-    public void setLayer(LayerType layer) {
-        NativeRenderData.setLayer(getNative(), LayerType.HeadLocked == layer ? 1 : 0);
+    public SXRRenderData setLayer(LayerType layer) {
+        int nativeLayer;
+        switch(layer)
+        {
+            case HeadLocked:
+            case Cursor:
+                nativeLayer = 1;
+                break;
+            case Video:
+                nativeLayer = 2;
+                break;
+            default:
+                nativeLayer = 0;
+                break;
+        }
+        NativeRenderData.setLayer(getNative(), nativeLayer);
+        return this;
     }
 }
 

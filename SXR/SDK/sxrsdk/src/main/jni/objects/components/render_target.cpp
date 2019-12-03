@@ -109,6 +109,7 @@ void RenderTarget::cullFromCamera(Scene* scene, jobject javaNode, Camera* camera
     scene->getLights().shadersRebuilt();
     renderer->state_sort(mRenderDataVector[Renderer::LAYER_NORMAL]);
     renderer->state_sort(mRenderDataVector[Renderer::LAYER_CURSOR]);
+    renderer->state_sort(mRenderDataVector[Renderer::LAYER_VIDEO]);
 }
 
 RenderTarget::~RenderTarget()

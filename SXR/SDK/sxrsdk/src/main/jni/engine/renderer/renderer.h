@@ -220,9 +220,10 @@ public:
         return  useStencilBuffer_;
     }
 
-    static constexpr int MAX_LAYERS = 2;
+    static constexpr int MAX_LAYERS = 3;
     static constexpr int LAYER_NORMAL = 0;
     static constexpr int LAYER_CURSOR = 1;
+    static constexpr int LAYER_VIDEO = 2;
 };
 extern Renderer* gRenderer;
 }
